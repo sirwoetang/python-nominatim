@@ -1,0 +1,6 @@
+Requires python2.7.x. Initially, you need to install prerequisites
+
+  python setup.py install
+
+To test
+  python geocodertests.py

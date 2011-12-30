@@ -2,12 +2,13 @@ import urllib
 import urllib2
 import simplejson
 
-class GeocoderError(Exception): pass
-class GeocoderResultError(Exception): pass
+#class GeocoderError(Exception): pass
+#class GeocoderResultError(Exception): pass
 
 
 class Geocoder(object):
-    base_url = "http://open.mapquestapi.com/nominatim/v1/search?format=json&%s"
+    def __init__(self, base_url = "http://open.mapquestapi.com/nominatim/v1/search?format=json"):
+        self.base_url = base_url + "&%s"
 
     def geocode(self, q, addressdetails=False, limit=None,
                  countrycodes='', viewbox=(), exclude_place_ids=[],
