@@ -10,7 +10,7 @@ class GeocoderTestCase(unittest.TestCase):
 
     def test_reverse_geocode(self):
         client = nominatim.ReverseGeocoder("http://192.168.10.50/nominatim/reverse.php?format=json")
-        response = client.geocode(-38.02183, 145.23557, 18, 1)
+        response = client.geocode(-38.02183, 145.23557)
         self.assertIsNotNone(response)
         self.assertIsNotNone(response['full_address'])
 
