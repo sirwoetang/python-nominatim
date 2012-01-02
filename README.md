@@ -36,5 +36,10 @@ Database Function
     $$
     language 'plpythonu';
 
-    SELECT reverse_geocode(-37.856206, 145.233980)
+    # SELECT reverse_geocode(-37.856206, 145.233980);
+                         reverse_geocode
+    ----------------------------------------------------------
+     Amesbury Avenue, Wantirna, City of Knox, 3152, Australia
+    (1 row)
+
 
