@@ -18,9 +18,16 @@ class ReverseGeocoder(object):
 
     def parse_json(self, data):
         try:
-            data = simplejson.loads(data)
-            data['full_address'] = data['display_name']
+            jsondata = simplejson.loads(data)
+
+            if "error" in data:
+              jsondata['full_address'] = jsondata['error']
+            elif "display_name" in data:
+              jsondata['full_address'] = jsondata['display_name']
+            else:
+              jsondata['full_address'] = "Unknown"
+
         except simplejson.JSONDecodeError:
-            data = []
+            jsondata = []
         
-        return data
+        return jsondata
