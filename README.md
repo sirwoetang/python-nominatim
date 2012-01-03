@@ -25,6 +25,10 @@ Reverse Geocode
 Database Function
 ---------------
 
+This assumes you have PL/PYTHON installed in Postgres.
+
+    CREATE PROCEDURAL LANGUAGE 'plpythonu' HANDLER plpython_call_handler;
+
     CREATE OR REPLACE FUNCTION reverse_geocode(latitude float, longitude float) RETURNS
          text
     AS
