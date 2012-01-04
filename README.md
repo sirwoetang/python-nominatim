@@ -28,11 +28,11 @@ Database Function
 
 This assumes you have PL/PYTHON installed for Postgres and have run setup.py. See Installation above.
 
-  # createdb -E utf8 testdb
-  # psql -d testdb -f setup.sql
-  # psql -d testdb
-  # SELECT reverse_geocode('http://127.0.0.1/nominatim/reverse.php?format=json', -37.856206, 145.233980); 
-                         reverse_geocode
-    ----------------------------------------------------------
-     Amesbury Avenue, Wantirna, City of Knox, 3152, Australia
-    (1 row)
+    # createdb -E utf8 testdb
+    # psql -d testdb -f setup.sql
+    # psql -d testdb
+    # SELECT reverse_geocode('http://127.0.0.1/nominatim/reverse.php?format=json', -37.856206, 145.233980); 
+                           reverse_geocode
+      ----------------------------------------------------------
+       Amesbury Avenue, Wantirna, City of Knox, 3152, Australia
+      (1 row)
