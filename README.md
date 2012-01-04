@@ -1,16 +1,17 @@
-Prerequisites
+Installation
 =============
 
-Requires python2.7.x. Initially, you need to install prerequisites (simplejson)
+Requires python2.7.x for development. Initially, you need to install prerequisites (simplejson) thru setup.py.
 
-    python setup.py install
+    # python setup.py install
+    ...
+    Installed /usr/local/lib/python2.6/site-packages/
+
+Depending on your PYTHON configuration, setup.py will put files in  /usr/local/lib/pythonx.x/site-packages/
 
 Development and Testing
 =======================
     python geocodertests.py
-
-Sample Code
-===========
 
 Reverse Geocode
 ---------------
@@ -25,25 +26,13 @@ Reverse Geocode
 Database Function
 ---------------
 
-This assumes you have PL/PYTHON installed in Postgres.
+This assumes you have PL/PYTHON installed for Postgres and have run setup.py. See Installation above.
 
-    CREATE PROCEDURAL LANGUAGE 'plpythonu' HANDLER plpython_call_handler;
-
-    CREATE OR REPLACE FUNCTION reverse_geocode(geocoding_url text, latitude float, longitude float) RETURNS
-      text
-      AS
-      $$
-       import nominatim
-       client = nominatim.ReverseGeocoder(geocoding_url)
-       response = client.geocode(latitude, longitude)
-       return response['full_address']
-      $$
-      language 'plpythonu';
-
-    # SELECT reverse_geocode('http://127.0.0.1/nominatim/reverse.php?format=json', -37.856206, 145.233980); 
+  # createdb -E utf8 testdb
+  # psql -d testdb -f setup.sql
+  # psql -d testdb
+  # SELECT reverse_geocode('http://127.0.0.1/nominatim/reverse.php?format=json', -37.856206, 145.233980); 
                          reverse_geocode
     ----------------------------------------------------------
      Amesbury Avenue, Wantirna, City of Knox, 3152, Australia
     (1 row)
-
-
