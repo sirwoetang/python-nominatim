@@ -6,9 +6,9 @@ class ReverseGeocoder(object):
     def __init__(self, base_url = "http://open.mapquestapi.com/nominatim/v1/reverse?format=json"):
         self.base_url = base_url + "&%s"
 
-    def geocode(self, lat, lon):
+    def geocode(self, lat, lon, zoom = 18):
         
-        params = { 'lat' : lat , 'lon' : lon}
+        params = { 'lat' : lat , 'lon' : lon , 'zoom' : zoom}
 
         url = self.base_url % urllib.urlencode(params)
         data = urllib2.urlopen(url)
