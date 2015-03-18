@@ -1,0 +1,8 @@
+1.populate only lat, lon in geolocation.csv
+2. run RGAPP.py,
+It will connect to the mapquest url in the nominatim python files. 
+if unitests fail, URL must be updated.
+
+Use python276
+
+3. output will be in output.csv
